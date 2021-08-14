@@ -52,6 +52,12 @@
 import Navbar from "../components/Navbar.vue";
 export default {
   components: { Navbar },
+  beforeCreate(){
+    console.log(localStorage.getItem('user'));
+    if(localStorage.getItem('user') == null || localStorage.getItem('token') == null ){
+      this.$router.push('login')
+    }
+  },
   data() {
     return {
       url: null,

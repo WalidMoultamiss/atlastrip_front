@@ -1,9 +1,12 @@
 <template>
   <divider-w-20 />
   <div v-if="show == 'BodyExp'" class="Intrests">
-    <h2>Search by my intrests</h2>
+    <div class="CreatePostContaner">
+      <Profile-image class="profileImg" />
+      <h2>Create a plan</h2>
+      <button @click="goto('/CreatePlan')" class="btn-hover btn-scale btn-pointer btn-plus "><h1>+</h1></button>
+    </div>
     <divider-w-20 />
-    <Intrests h="50px" :text="false" />
   </div>
   <div v-if="show == 'BodyPosts'" class="createPst">
     <div class="CreatePostContaner">
@@ -98,6 +101,9 @@ export default {
       this.url = null;
       // console.log(requestOptions.body);
     },
+    goto(url){
+      this.$router.push(url)
+    },
     getText(text) {
       this.text = text;
     },
@@ -133,6 +139,47 @@ export default {
 <style lang="scss" scoped>
 .Intrests {
   width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  .CreatePostContaner {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.262);
+    h2{
+      margin: 0px;
+      padding: 0px;
+      width: 100%;
+      text-align: left;
+    }
+    
+    .btn-plus{
+      padding: 10px;
+      border-radius: 5px;
+      border: 0px green solid;
+      outline:none;
+      color: white;
+      background-color: #00b919;
+      h1{
+        width: 100%;
+        text-align: left;
+      }
+    }
+
+    .profileImg {
+      min-width: 50px;
+      min-height: 50px;
+      border-radius: 50px;
+    }
+    .inputPostCreate {
+      max-width: 100%;
+    }
+  }
 }
 
 .createPst {

@@ -1,5 +1,6 @@
 <template>
   <div class="PlanViewerExpContainer">
+      
       <PlanViewerBody :days="days" />
       <devider/>
       <Navbar Active="experiences"/>

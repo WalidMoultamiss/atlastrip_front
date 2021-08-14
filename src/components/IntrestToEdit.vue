@@ -59,7 +59,7 @@ export default {
 .dimming{
   opacity: 0.5;
   animation-duration: 0.05s;
-  --webkit-animation: slidein 0.05s infinite alternate;
+  -webkit-animation: slidein 0.05s infinite alternate;
   -moz-animation: slidein 0.05s infinite alternate;
   animation-name: slidein 0.05s infinite alternate ;
 }
@@ -73,7 +73,6 @@ export default {
     // transform: scale(0.8);
     margin-left: 2px;
     margin-right: 0px;
-     
     transform: rotate(1deg);
 
 // width: 300%;
@@ -88,7 +87,6 @@ export default {
     
     margin-left: 0px;
     margin-right: 2px;
-    
     transform: rotate(-1deg);
     // width: 100%;
   }

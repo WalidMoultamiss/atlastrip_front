@@ -1,7 +1,10 @@
 <template>
   <div class="CreatePlanContainer">
-    <CreatePlanHolder @plan_name="change_plan_name" @getInfo="getInfo" :hikesAll="hikesAll" />
-    <button @click="send">send it</button>
+    <div class="imgTop">
+      <h2>Over {{info.plans}} plans has been created with love by over {{info.users}} backpackers, be part of the community</h2>
+    </div>
+    <CreatePlanHolder class="createPlanHolder" @plan_name="change_plan_name" @getInfo="getInfo" :hikesAll="hikesAll" />
+    <button class="btn-primary-hover btn-translate" @click="send">Create Plan</button>
     <devider />
     <devider />
     <devider />
@@ -25,7 +28,8 @@ export default {
     return {
       hikesAll: [],
       infoPlan:[],
-      plan_name:''
+      plan_name:'',
+      info:{}
     };
   },
   methods: {
@@ -82,12 +86,56 @@ export default {
         .then((result) => (this.hikesAll = result))
         .catch((error) => console.log("error", error));
     },
+    getInfos(){
+          var myHeaders = new Headers();
+myHeaders.append("Accept", "application/json");
+myHeaders.append("Content-Type", "application/json");
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'follow'
+};
+
+fetch("http://localhost/Atlastrip_Backend/plan/getinfoOfAllPlans", requestOptions)
+  .then(response => response.json())
+  .then(result => this.info = result)
+  .catch(error => console.log('error', error));
+      }
   },
   beforeMount() {
+    this.getInfos()
     this.getHikesAll();
   },
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+.CreatePlanContainer{
+  width: 100%;
+  .imgTop{
+    padding: 40px;
+    padding-top: 80px;
+    color: white;
+    text-shadow: 0px 1px 10px rgba(0, 0, 0, 0.628);
+    background-image: url('../../assets/0ca0ddd9bf8dfee8a2c26227bf21f6b8.gif');
+    width: 100%;
+    height: 300px;
+    background-position: center;
+    background-size:cover ;
+    border-bottom-left-radius: 40px ;
+    border-bottom-right-radius: 40px ;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.296);
+    h2{
+      text-align: left;
+    }
+  }
+  .createPlanHolder{
+    transform: translateY(-100px);
+  }
+  .btn-translate{
+    transform: translateY(-80px);
+  }
+  
+}
+
 </style>

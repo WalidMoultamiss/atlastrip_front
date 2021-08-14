@@ -26,6 +26,55 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  .btn-hover-pointer{
+    &:hover{
+      transform: scale(1.1);
+    cursor: pointer;
+    }
+  }
+  .btn-pointer{
+    &:hover{
+    cursor: pointer;
+    }
+  }
+  .btn-bg{
+    &:hover{
+    background-color: rgb(230, 255, 230);
+    }
+  }
+  
+  .btn-scale{
+    &:hover{
+    transform: scale(1.1);
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.241);
+    }
+  }
+
+  
+
+  .btn-primary-hover {
+    transition: 0.3s;
+    outline: none;
+    border-radius: 10px;
+    width: 80%;
+    border: 2px solid green;
+    height: 40px;
+    padding: 5px;
+    font-size: large;
+    background-color: white;
+    color: green;
+    &:focus {
+      transition: 0.3s;
+      box-shadow: 0px 0px 5px green;
+      transform: scale(1.02);
+    }
+    &:hover{
+      background-color: green;
+      color: white;
+    cursor: pointer;
+    transform: scale(1.1);
+    }
+  }
 }
 
 #nav {

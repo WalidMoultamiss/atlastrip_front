@@ -2,9 +2,9 @@
   <div>
     <Message v-if="toggleMsg" @hide="hideMe" :msg="msg" />
     <div class="topNavbar">
-      <button class="back" @click="backToHome">⨞</button>
+      <button class="back btn-hover-pointer" @click="backToHome"><img src="../assets/icons/chevron-left.svg" alt=""></button>
       <h2>{{ user.first_name }}</h2>
-      <div class="avatar" @click.prevent="gotoEdit">✏</div>
+      <div class="avatar btn-pointer" @click.prevent="gotoEdit"><img src="../assets/icons/edit-3.svg" alt=""></div>
     </div>
     <div class="devider"></div>
     <div class="imageCover">
@@ -29,16 +29,16 @@
       </div>
       <div class="postFolContainer">
         <div class="unitHolder">
-          <div class="unitNum"><h4>23</h4></div>
+          <div class="unitNum"><h4>{{user.num_of_my_posts}}</h4></div>
           <div class="unitTitle">Post</div>
         </div>
         <div class="unitHolder">
-          <div class="unitNum"><h4>755</h4></div>
+          <div class="unitNum"><h4>{{user.followers}}</h4></div>
           <div class="unitTitle">Followers</div>
         </div>
         <div class="unitHolder">
-          <div class="unitNum"><h4>1899</h4></div>
-          <div class="unitTitle">Following</div>
+          <div class="unitNum"><h4>{{user.sumlikes}}</h4></div>
+          <div class="unitTitle">Likes</div>
         </div>
       </div>
     </div>
@@ -96,6 +96,9 @@ export default {
     };
   },
   methods: {
+    backToHome() {
+      this.$router.back();
+    },
     hideMe(){
       this.toggleMsg = false
     },
@@ -117,7 +120,8 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch("http://localhost/Atlastrip_Backend/hike/hikesImage", requestOptions)
+
+fetch("http://localhost/Atlastrip_Backend/hike/ninehikes", requestOptions)
   .then(response => response.json())
   .then(result => this.hikes = result)
   .catch(error => console.log('error', error));
@@ -133,7 +137,7 @@ fetch("http://localhost/Atlastrip_Backend/hike/hikesImage", requestOptions)
       var myHeaders = new Headers();
       myHeaders.append("Accept", "application/json");
       myHeaders.append(
-        "Authorization",
+        "authorization",
         `bearer ${localStorage.getItem("token")}`
       );
       var requestOptions = {
@@ -146,6 +150,7 @@ fetch("http://localhost/Atlastrip_Backend/hike/hikesImage", requestOptions)
         .then((response) => response.json())
         .then((result) => {
           this.user = result.user;
+          console.log(result);
         })
         .catch((error) => console.log("error", error));
     },
@@ -183,14 +188,17 @@ fetch("http://localhost/Atlastrip_Backend/hike/hikesImage", requestOptions)
     outline: none;
   }
   .avatar {
-    transform: rotate(127deg);
+    // transform: rotate(127deg); 
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(164 219 113);
+    background-color: white;
     height: 34px;
     width: 34px;
     border-radius: 200px;
+    img{
+      
+    }
     svg {
       width: 70%;
       height: 70%;

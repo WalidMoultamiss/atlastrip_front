@@ -1,7 +1,7 @@
 <template>
   
       <iframe id="iframeId" class="banner"  width="100%" allowfullscreen autoplay
-src="https://www.youtube.com/embed/vgM4jfii4B8?rel=0&amp;autoplay=1&mute=1&controls">
+src="https://www.youtube.com/embed/_xHpgtDnco4?rel=0&amp;autoplay=1&mute=1&controls">
       <a  href='https://www.nike.com/joyride' class="actionBtn">
           <h3>learn more</h3>
       </a>
@@ -48,6 +48,11 @@ methods:{
             background-color: rgb(0, 0, 0);
         }
     }
+}
+@media (max-width: 500px) {
+  .banner {
+    height: 230px;
+  }
 }
 
 </style>

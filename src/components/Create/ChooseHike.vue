@@ -1,7 +1,6 @@
 <template>
   <div
-    :class="[close ?  'chooseHike chooseHikeNoShadow' : 'chooseHike']"
-  >
+    :class="[close ?  'chooseHike chooseHikeNoShadow' : 'chooseHike']">
     <div v-if="close" class="imageHikeHolderRounded">
       <div class="triangle"></div>
       <div class="imageHikeRounded">
@@ -29,7 +28,7 @@
       placeholder="filter by name"
     />
     
-    <span v-if="!close">🔍</span>
+    <span v-if="!close"><div class="search"></div></span>
 
     <Divider-w-20 v-if="!close"  />
     <div v-if="!close" class="allHikes">
@@ -60,7 +59,7 @@
           {{ hike.name }}
         </h5>
         <div class="whiteBoard">
-          <div class="select">select</div>
+          <div class="select btn-pointer btn-bg btn-scale ">select</div>
         </div>
       </label>
     </div>
@@ -145,6 +144,11 @@ export default {
   width: 100%;
   padding: 10px 0px 10px 10px;
   margin: 0px 0px;
+  .search{ 
+    width: 100%;
+    height: 100%;
+    background-image: url('../../assets/icons/search.svg');
+  }
   .imageHikeHolderRounded{
     transform: translateX(-22px);
     width: 100%;

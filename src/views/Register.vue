@@ -55,7 +55,7 @@
 
         <div v-show="toggleRegister" class="container">
           <div class="form">
-            <button @click="toggle" >back</button>
+            <button class="btn" @click="toggle" >&lt;</button>
             <h2>REGISTER</h2>
             <form @submit.prevent="register">
               <div class="inputBx">
@@ -291,7 +291,7 @@ section {
 .container {
   position: relative;
   padding: 50px;
-  width: 260px;
+  width: 340px;
   min-height: 380px;
   display: flex;
   justify-content: center;
@@ -322,6 +322,39 @@ section {
   position: relative;
   width: 100%;
   height: 100%;
+
+  .btn {
+    position: absolute;
+    top: -40px;
+    left: -40px;
+      width: 20%;
+      outline: none;
+      border: none;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.2);
+      padding: 4px 4px;
+      // padding-left: 40px;
+      border-radius: 15px;
+      color: #fff;
+      font-size: 16px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      background: rgba(255, 255, 255, 0.324);
+      max-width: 100px;
+      box-shadow: none;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: 1.5s;
+    }
+
+    .btn:hover {
+      background: linear-gradient(
+        115deg,
+        rgba(0, 0, 0, 0.1),
+        rgba(255, 255, 255, 0.25)
+      );
+      color: #fff;
+      transition: 0.5s;
+    }
 
   h2 {
     color: #fff;
@@ -403,6 +436,7 @@ section {
       color: #fff;
       transition: 0.5s;
     }
+    
 
     input::placeholder {
       color: #fff;

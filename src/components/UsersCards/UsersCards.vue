@@ -41,6 +41,7 @@ export default {
 
 <style lang="scss" scoped>
 .cardContainer {
+  
   text-align: left;
   max-width: 98%;
   display: flex;

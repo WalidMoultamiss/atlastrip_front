@@ -3,6 +3,7 @@
     <div class="sideLeftContainer">
       <div class="dayBorder">
         <div class="dayNumContainer">
+
           <h1>{{ day_number }}</h1>
           <h4>day</h4>
         </div>
@@ -11,15 +12,16 @@
     <div class="hikesHolder">
         <Hikes  :line="false" :hikes="hikes" />
     </div>
-    
   </div>
 </template>
 
 <script>
+import DividerW20 from '../DividerW20.vue';
 import Hikes from "../Hikes.vue";
 export default {
   components: {
     Hikes,
+    DividerW20,
   },
   props: {
     day: Object,
@@ -55,14 +57,11 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scope>
+<style lang="scss" scoped>
 .dayContainer {
   width: 100%;
   padding: 0px 15px;
-  // .hikesHolder{
-  //   //   margin-top: -20px;
-  // }
+  background-color: white;
   .sideLeftContainer {
     max-width: 20%;
     .dayBorder {

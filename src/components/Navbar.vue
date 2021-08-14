@@ -213,7 +213,7 @@
             >settings</strong
           >
         </button>
-        <ProfileImage class="ProfileImg"/>
+        <ProfileImage v-if="isLogged" class="ProfileImg"/>
       </menu>
     
     </section>
@@ -227,8 +227,18 @@ export default {
   props: {
     Active: String,
   },
+    data(){return{
+      isLogged:false
+    }},
 
   methods: {
+    beforeCreate(){
+    if(localStorage.getItem('user') == null || localStorage.getItem('token') == null ){
+      this.isLogged = false
+    }else{
+      this.isLogged = true
+    }
+  },
     onscroll(){
       let navbar = document.querySelector('.navHolder')
   var prevScrollpos = window.pageYOffset;

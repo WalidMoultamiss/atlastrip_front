@@ -1,6 +1,6 @@
 <template>
   <div class="days">
-    <h2  >day {{numberDays}}</h2>
+    <h2>day {{numberDays}}</h2>
     <ChooseHikes  @nextDay="nextDay"   :key="reload" :hikesAll="hikesAll"  />
   </div>
 </template>

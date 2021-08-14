@@ -7,7 +7,7 @@
   </div>
   <div class="wrapperExpert">
     <div class="divider"></div>
-    <CardProfile :card="cardWidth" v-for="profile in Profiles" :Profile="profile" :key="profile"/>
+    <CardProfile :following="profile.following" :card="cardWidth" v-for="profile in Profiles" :Profile="profile" :key="profile"/>
     <div class="divider"></div>
     
   </div>
@@ -89,5 +89,6 @@ padding: 1% 5%;
     height: max-content;
     padding: 10px 0px;
     overflow-x: scroll;
+    scroll-behavior: smooth !important;
 }
 </style>

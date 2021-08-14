@@ -12,7 +12,7 @@
     }"
   >
     <div class="hikeheader">
-      <FavoriteHike />
+      <FavoriteHike style="opacity:0;" />
       <div v-if="hike.first_name != undefined" class="rightBox">
         created by &nbsp;
         <h4>{{ hike.first_name }}</h4>
@@ -63,6 +63,7 @@ export default {
 
 <style lang="scss" scoped>
 .hikeHolder {
+  
   // background-image: url("../assets/13.jpg");
   width: 100%;
   height: 220px;
@@ -77,6 +78,7 @@ export default {
   flex-wrap: wrap;
 
   .hikeheader {
+    
     width: 100%;
     height: max-content;
     display: flex;
@@ -105,10 +107,12 @@ export default {
     }
   }
   h2 {
+    transform: translateY(34px);
   overflow: hidden;
   max-width: 19ch;
 }
   .hikeBody {
+    
     position: relative;
     width: 100%;
     height: 30px;
@@ -120,9 +124,11 @@ export default {
       width: 100%;
       height: 25px;
       img {
+        transform: translateY(10px);
         width: 25px;
       }
       h4 {
+        transform: translateY(10px);
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
